@@ -18,11 +18,12 @@ protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
+    void mouseDoubleClickEvent(QMouseEvent *event) override;
 
 private:
     QPoint m_start_pos;
     QPoint m_end_pos;
-    bool m_press_mouse = false;
+    bool m_prepare_paint = false;
     bool m_need_paint = false;
 
     enum ShapeType
@@ -31,9 +32,15 @@ private:
         typePloygon,
     };
     ShapeType m_shape_type = typePloygon;
-    QPixmap m_tempPix;
-    QPixmap m_pix;
-    bool m_isDrawing = false;
+
+    struct Line
+    {
+        Line() {}
+        Line(QPoint begin, QPoint end) : begin_point(begin), end_point(end) {}
+        QPoint begin_point;
+        QPoint end_point;
+    };
+    std::vector<Line> m_lines;
 };
 
 #endif  // DRAWINGBOARD_H
