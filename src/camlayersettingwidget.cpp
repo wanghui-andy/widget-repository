@@ -1,5 +1,5 @@
-﻿#include "importfilewidget.h"
-#include "ui_importfilewidget.h"
+﻿#include "camlayersettingwidget.h"
+#include "ui_camlayersettingwidget.h"
 #include <QComboBox>
 #include <QFileDialog>
 
@@ -11,23 +11,23 @@ const int c_layer_col = 1;
 const int c_side_col = 2;
 const int c_delete_col = 3;
 
-ImportFileWidget::ImportFileWidget(QWidget *parent) : QWidget(parent), ui(new Ui::ImportFileWidget)
+CAMLayerSettingWidget::CAMLayerSettingWidget(QWidget *parent) : QWidget(parent), ui(new Ui::CAMLayerSettingWidget)
 {
     ui->setupUi(this);
     initWidgets();
 }
 
-ImportFileWidget::~ImportFileWidget()
+CAMLayerSettingWidget::~CAMLayerSettingWidget()
 {
     delete ui;
 }
 
-void ImportFileWidget::initWidgets()
+void CAMLayerSettingWidget::initWidgets()
 {
     ui->treeWidget->header()->setVisible(false);
 }
 
-void ImportFileWidget::on_importPushButton_clicked()
+void CAMLayerSettingWidget::on_importCAMPushButton_clicked()
 {
     QString filePath = QFileDialog::getOpenFileName(this, QString::fromLocal8Bit("选择文件"), "C:", tr("AllFiles(*)"));
 
@@ -88,19 +88,35 @@ void ImportFileWidget::on_importPushButton_clicked()
     }
 }
 
-void ImportFileWidget::slotLevelCurrentIndexChanged(int index)
+void CAMLayerSettingWidget::slotLevelCurrentIndexChanged(int index)
 {
     ControlIndex control_index = m_control_map[sender()];
 }
 
-void ImportFileWidget::slotSideCurrentIndexChanged(int index)
+void CAMLayerSettingWidget::slotSideCurrentIndexChanged(int index)
 {
     ControlIndex control_index = m_control_map[sender()];
 }
 
-void ImportFileWidget::on_resetPushButton_clicked() {}
+void CAMLayerSettingWidget::slotDeleteButtonClicked()
+{
+    ControlIndex index = m_control_map[sender()];
 
-void ImportFileWidget::on_selectAllCheckBox_clicked(bool checked)
+    ui->treeWidget->takeTopLevelItem(index.row);
+
+    // refresh row
+    for (auto &control_index : m_control_map)
+    {
+        if (control_index.second.row > index.row)
+        {
+            control_index.second.row--;
+        }
+    }
+}
+
+void CAMLayerSettingWidget::on_resetPushButton_clicked() {}
+
+void CAMLayerSettingWidget::on_checkBox_clicked(bool checked)
 {
     int count = ui->treeWidget->topLevelItemCount();
     for (int index = 0; index < count; index++)
@@ -116,23 +132,9 @@ void ImportFileWidget::on_selectAllCheckBox_clicked(bool checked)
     }
 }
 
-void ImportFileWidget::on_deleteAllPushButton_clicked()
+void CAMLayerSettingWidget::on_ressetPushButton2_clicked() {}
+
+void CAMLayerSettingWidget::on_deletaAllPushButton_clicked()
 {
     ui->treeWidget->clear();
-}
-
-void ImportFileWidget::slotDeleteButtonClicked()
-{
-    ControlIndex index = m_control_map[sender()];
-
-    ui->treeWidget->takeTopLevelItem(index.row);
-
-    // refresh row
-    for (auto &control_index : m_control_map)
-    {
-        if (control_index.second.row > index.row)
-        {
-            control_index.second.row--;
-        }
-    }
 }

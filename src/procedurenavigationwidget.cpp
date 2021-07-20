@@ -1,9 +1,9 @@
 ﻿#include "procedurenavigationwidget.h"
 #include "ui_procedurenavigationwidget.h"
 
-const QString c_ready_pic = "D:\\projects\\WidgetRepository\\WidgetRepository\\icon\\ready.png";
-const QString c_processing_pic = "D:\\projects\\WidgetRepository\\WidgetRepository\\icon\\processing.png";
-const QString c_finish_pic = "D:\\projects\\WidgetRepository\\WidgetRepository\\icon\\finish.png";
+const QString c_ready_pic = "D:\\projects\\widget-repository\\src\\icon\\ready.png";
+const QString c_processing_pic = "D:\\projects\\widget-repository\\src\\icon\\processing.png";
+const QString c_finish_pic = "D:\\projects\\widget-repository\\src\\icon\\finish.png";
 
 ProcedureNavigationWidget::ProcedureNavigationWidget(QWidget *parent)
     : QWidget(parent), ui(new Ui::ProcedureNavigationWidget)

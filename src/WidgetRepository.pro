@@ -16,6 +16,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    camimageeditwidget.cpp \
+    camlayersettingwidget.cpp \
+    drawingboard.cpp \
+    graphicviewwidget.cpp \
     importfilewidget.cpp \
     layereditwidget.cpp \
     layerrenderwidget.cpp \
@@ -25,6 +29,10 @@ SOURCES += \
     procedurenavigationwidget.cpp
 
 HEADERS += \
+    camimageeditwidget.h \
+    camlayersettingwidget.h \
+    drawingboard.h \
+    graphicviewwidget.h \
     importfilewidget.h \
     layereditwidget.h \
     layerrenderwidget.h \
@@ -33,6 +41,9 @@ HEADERS += \
     procedurenavigationwidget.h
 
 FORMS += \
+    camimageeditwidget.ui \
+    camlayersettingwidget.ui \
+    graphicviewwidget.ui \
     importfilewidget.ui \
     layereditwidget.ui \
     layerrenderwidget.ui \

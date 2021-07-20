@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>268</width>
+    <width>308</width>
     <height>532</height>
    </rect>
   </property>
@@ -180,7 +180,7 @@
      <widget class="QPushButton" name="nextPushButton">
       <property name="geometry">
        <rect>
-        <x>133</x>
+        <x>106</x>
         <y>495</y>
         <width>80</width>
         <height>20</height>
@@ -219,7 +219,7 @@
      <widget class="QPushButton" name="previousPushButton">
       <property name="geometry">
        <rect>
-        <x>33</x>
+        <x>14</x>
         <y>495</y>
         <width>80</width>
         <height>20</height>
@@ -446,6 +446,19 @@
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="mainUIPushButton">
+      <property name="geometry">
+       <rect>
+        <x>198</x>
+        <y>495</y>
+        <width>80</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>主界面</string>
       </property>
      </widget>
     </widget>
