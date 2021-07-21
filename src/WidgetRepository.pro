@@ -18,7 +18,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     camimageeditwidget.cpp \
     camlayersettingwidget.cpp \
-    drawingboard.cpp \
+    drawingboardscene.cpp \
+    drawingboardview.cpp \
     graphicviewwidget.cpp \
     importfilewidget.cpp \
     layereditwidget.cpp \
@@ -31,7 +32,8 @@ SOURCES += \
 HEADERS += \
     camimageeditwidget.h \
     camlayersettingwidget.h \
-    drawingboard.h \
+    drawingboardscene.h \
+    drawingboardview.h \
     graphicviewwidget.h \
     importfilewidget.h \
     layereditwidget.h \

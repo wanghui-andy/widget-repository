@@ -18,7 +18,7 @@
     <widget class="QWidget" name="horizontalWidget" native="true">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="DrawingBoard" name="graphicsView">
+       <widget class="DrawingBoardView" name="graphicsView">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -43,9 +43,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>DrawingBoard</class>
+   <class>DrawingBoardView</class>
    <extends>QGraphicsView</extends>
-   <header>drawingboard.h</header>
+   <header>drawingboardview.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

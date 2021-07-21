@@ -1,0 +1,31 @@
+﻿#ifndef DRAWINGBOARD_H
+#define DRAWINGBOARD_H
+
+#include "drawingboardscene.h"
+#include <QGraphicsView>
+#include <QMouseEvent>
+#include <QWidget>
+
+class DrawingBoardView : public QGraphicsView
+{
+    Q_OBJECT
+public:
+    explicit DrawingBoardView(QWidget *parent = nullptr);
+    ~DrawingBoardView();
+
+public:
+    void setShapeType(DrawingBoardScene::ShapeType type)
+    {
+        m_scene->setShapeType(type);
+    }
+
+protected:
+    virtual void mousePressEvent(QMouseEvent *event) override;
+    virtual void mouseMoveEvent(QMouseEvent *event) override;
+    virtual void mouseReleaseEvent(QMouseEvent *event) override;
+
+private:
+    DrawingBoardScene *m_scene;
+};
+
+#endif  // DRAWINGBOARD_H
