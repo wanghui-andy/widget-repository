@@ -1,4 +1,7 @@
 QT       += core gui
+QT           += widgets svg
+QT       += core xml
+qtHaveModule(opengl): QT += opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,7 +30,9 @@ SOURCES += \
     listtreewidget.cpp \
     main.cpp \
     mainwindow.cpp \
-    procedurenavigationwidget.cpp
+    pathitem.cpp \
+    procedurenavigationwidget.cpp \
+    svgparser.cpp
 
 HEADERS += \
     camimageeditwidget.h \
@@ -40,7 +45,9 @@ HEADERS += \
     layerrenderwidget.h \
     listtreewidget.h \
     mainwindow.h \
-    procedurenavigationwidget.h
+    pathitem.h \
+    procedurenavigationwidget.h \
+    svgparser.h
 
 FORMS += \
     camimageeditwidget.ui \

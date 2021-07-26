@@ -23,6 +23,11 @@ protected:
     virtual void mousePressEvent(QMouseEvent *event) override;
     virtual void mouseMoveEvent(QMouseEvent *event) override;
     virtual void mouseReleaseEvent(QMouseEvent *event) override;
+    void wheelEvent(QWheelEvent *event) override;
+
+private:
+    void zoomBy(qreal factor);
+    qreal zoomFactor() const;
 
 private:
     DrawingBoardScene *m_scene;
