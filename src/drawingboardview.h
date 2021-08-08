@@ -19,6 +19,8 @@ public:
         m_scene->setShapeType(type);
     }
 
+    void loadSvgFile(const QString &file_name);
+
 protected:
     virtual void mousePressEvent(QMouseEvent *event) override;
     virtual void mouseMoveEvent(QMouseEvent *event) override;

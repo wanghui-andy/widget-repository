@@ -6,34 +6,26 @@ PathItem::~PathItem() {}
 
 void PathItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    Q_UNUSED(widget);
 
-    //    if (option->state & QStyle::State_HasFocus)
-    //    {
-    //        painter->setPen(Qt::DotLine);
-    //    }
-    //    else
-    //    {
-    //        painter->setPen(Qt::SolidLine);
-    //    }
-
-    // painter->setBrush(Qt::yellow);
-    //    QPen pen;
-    //    pen.setBrush()
-
+    painter->save();
     if (m_style.pen != nullptr)
     {
-        //        Qt::PenCapStyle capStyle = m_style.pen->capStyle();
-        //        Qt::PenJoinStyle joinStyle = m_style.pen->joinStyle();
-        //        qreal miterLimit = m_style.pen->miterLimit();
-        //        qreal widthF = m_style.pen->widthF();
-
-        m_style.pen->setStyle(Qt::SolidLine);
         painter->setOpacity(m_style.opacity);
-        painter->setTransform(m_style.transform);
-        painter->strokePath(path(), *m_style.pen);
-    }
+        resetTransform();
+        setTransform(m_style.transform);
 
-    if (m_style.brush != nullptr)
+        if (option->state & QStyle::State_HasFocus)
+        {
+            m_last_pen.setColor(Qt::red);
+            painter->strokePath(path(), m_last_pen);
+        }
+        else
+        {
+            painter->strokePath(path(), *m_style.pen);
+        }
+    }
+    else if (m_style.brush != nullptr)
     {
         painter->setOpacity(m_style.opacity);
         if (option->state & QStyle::State_HasFocus)
@@ -45,4 +37,9 @@ void PathItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
             painter->fillPath(path(), *m_style.brush);
         }
     }
+    else
+    {
+    }
+
+    painter->restore();
 }

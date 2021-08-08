@@ -39,7 +39,7 @@ protected:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
 
 private:
-    ShapeType m_type = typePloygon;
+    ShapeType m_type = typeRectangle;
 
     std::vector<QGraphicsItem *> m_items;  //装有父类指针的QVector，指向的是不同的子类对象
     QRectF m_rect;

@@ -19,10 +19,15 @@ public:
     void setStyle(SvgStyle style)
     {
         m_style = style;
+        if (style.pen != nullptr)
+        {
+            m_last_pen = *style.pen;
+        }
     }
 
 private:
     SvgStyle m_style;
+    QPen m_last_pen;
 };
 
 #endif  // PATHITEM_H
