@@ -46,6 +46,7 @@ private:
     QPointF m_start_point;
     QPointF m_end_point;
     bool m_need_draw = false;
+    bool m_finish_draw = false;
     bool m_is_drawing_poly = true;
 
     QVector<QPointF> m_polygonPoints;        //暂存的多边形的点集

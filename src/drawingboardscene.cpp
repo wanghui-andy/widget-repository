@@ -10,7 +10,7 @@ void DrawingBoardScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     m_start_point = event->scenePos();
     m_end_point = event->scenePos();
-    if (typeRectangle == m_type)
+    if (typeRectangle == m_type && !m_finish_draw)
     {
         m_need_draw = true;
         QGraphicsRectItem *rectItem = new QGraphicsRectItem();
@@ -98,6 +98,7 @@ void DrawingBoardScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     if (typeRectangle == m_type)
     {
         m_need_draw = false;
+        m_finish_draw = true;
     }
 
     QGraphicsScene::mouseReleaseEvent(event);
