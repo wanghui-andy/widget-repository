@@ -16,7 +16,7 @@ public:
 public:
     void setShapeType(DrawingBoardScene::ShapeType type)
     {
-        m_scene->setShapeType(type);
+        // m_scene->setShapeType(type);
     }
 
     void loadSvgFile(const QString &file_name);
@@ -32,7 +32,7 @@ private:
     qreal zoomFactor() const;
 
 private:
-    DrawingBoardScene *m_scene;
+    QGraphicsScene *m_scene;
 };
 
 #endif  // DRAWINGBOARD_H

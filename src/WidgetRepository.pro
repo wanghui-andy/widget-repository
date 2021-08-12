@@ -32,6 +32,7 @@ SOURCES += \
     mainwindow.cpp \
     pathitem.cpp \
     procedurenavigationwidget.cpp \
+    rectitem.cpp \
     svgparser.cpp
 
 HEADERS += \
@@ -47,6 +48,7 @@ HEADERS += \
     mainwindow.h \
     pathitem.h \
     procedurenavigationwidget.h \
+    rectitem.h \
     svgparser.h
 
 FORMS += \

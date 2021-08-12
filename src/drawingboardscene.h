@@ -1,5 +1,6 @@
 ﻿#ifndef DRAWINGBOARDSCENE_H
 #define DRAWINGBOARDSCENE_H
+#include "rectitem.h"
 #include <QGraphicsItemGroup>
 #include <QGraphicsScene>
 #include <QMouseEvent>
@@ -34,9 +35,12 @@ public:
 
 protected:
     // Event handlers
-    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
-    void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
-    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+    //    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+    //    void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
+    //    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+
+private:
+    void DrawSubp();
 
 private:
     ShapeType m_type = typeRectangle;
@@ -48,6 +52,8 @@ private:
     bool m_need_draw = false;
     bool m_finish_draw = false;
     bool m_is_drawing_poly = true;
+
+    RectItem *m_rect_item = nullptr;
 
     QVector<QPointF> m_polygonPoints;        //暂存的多边形的点集
     QVector<QPointF> m_freePoints;           //暂存的自由绘画的点集
