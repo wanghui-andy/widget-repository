@@ -38,7 +38,7 @@ QRectF PathItem::boundingRect() const
 
     //    return QRectF(lx, ty, rx - lx, by - ty);
 
-    return QRectF(18.470772, 455.574738, 25.407017, 8.370083);
+    return QRectF(0, 0, 32.399985, 27.29992);
 }
 
 #define R2D (180.0 / M_PI)
@@ -67,10 +67,10 @@ void PathItem::drawArc(QPainter &painter, qreal sx, qreal sy, qreal ex, qreal ey
         }
     }
 
-    int rectx_min = sx;
-    int rectx_max = 0;
-    int recty_min = sy;
-    int recty_max = 0;
+    qreal rectx_min = sx;
+    qreal rectx_max = 0;
+    qreal recty_min = sy;
+    qreal recty_max = 0;
     if (sx < rectx_min)
         rectx_min = sx;
     if (ex < rectx_min)
@@ -142,7 +142,8 @@ void PathItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
 
     {
         painter->setPen(m_bounding_pen);
-        painter->drawRect(boundingRect());
+        if (!m_bounding_rect.isEmpty())
+            painter->drawRect(m_bounding_rect);
     }
 
     if (m_drawline)
@@ -150,7 +151,8 @@ void PathItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
         painter->setPen(m_element_pen);
         painter->drawLines(m_lines);
     }
-    setPos(m_pos_x, m_pos_y);
+    if (m_bounding_rect.isEmpty())
+        setPos(m_pos_x, m_pos_y);
 
     // painter->drawRect(QRectF(0, 0, 300, 300));
 

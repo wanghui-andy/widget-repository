@@ -83,6 +83,11 @@ public:
         m_pos_y = y;
     }
 
+    void setBoundingRect(const QRectF &rect)
+    {
+        m_bounding_rect = rect;
+    }
+
 protected:
     QRectF boundingRect() const override;
 
@@ -109,6 +114,7 @@ private:
     QPen m_bounding_pen;
     qreal m_pos_x;
     qreal m_pos_y;
+    QRectF m_bounding_rect;
 };
 
 #endif  // PATHITEM_H
