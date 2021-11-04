@@ -2,6 +2,7 @@
 #include "camimageeditwidget.h"
 #include "camlayersettingwidget.h"
 #include "graphicviewwidget.h"
+#include "histogramwidget.h"
 #include "importfilewidget.h"
 #include "layereditwidget.h"
 #include "layerrenderwidget.h"
@@ -22,8 +23,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::InitWidgets()
 {
-    ListTreeWidget *list_tree_widget = new ListTreeWidget();
-    ui->horizontalLayout_3->addWidget(list_tree_widget);
+
+    HistogramWidget *hist_widget = new HistogramWidget();
+    ui->horizontalLayout_3->addWidget(hist_widget);
+
+    //    ListTreeWidget *list_tree_widget = new ListTreeWidget();
+    //    ui->horizontalLayout_3->addWidget(list_tree_widget);
 
     //    CAMImageEditWidget *widge1 = new CAMImageEditWidget();
     //    ui->horizontalLayout_2->addWidget(widge1);

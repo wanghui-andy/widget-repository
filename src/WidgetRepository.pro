@@ -1,6 +1,7 @@
 QT       += core gui
 QT           += widgets svg
 QT       += core xml
+QT += charts
 qtHaveModule(opengl): QT += opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -19,11 +20,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    avichartview.cpp \
+    avichartwidget.cpp \
     camimageeditwidget.cpp \
     camlayersettingwidget.cpp \
     drawingboardscene.cpp \
     drawingboardview.cpp \
     graphicviewwidget.cpp \
+    histogramwidget.cpp \
     importfilewidget.cpp \
     layereditwidget.cpp \
     layerrenderwidget.cpp \
@@ -36,11 +40,14 @@ SOURCES += \
     svgparser.cpp
 
 HEADERS += \
+    avichartview.h \
+    avichartwidget.h \
     camimageeditwidget.h \
     camlayersettingwidget.h \
     drawingboardscene.h \
     drawingboardview.h \
     graphicviewwidget.h \
+    histogramwidget.h \
     importfilewidget.h \
     layereditwidget.h \
     layerrenderwidget.h \
@@ -55,6 +62,7 @@ FORMS += \
     camimageeditwidget.ui \
     camlayersettingwidget.ui \
     graphicviewwidget.ui \
+    histogramwidget.ui \
     importfilewidget.ui \
     layereditwidget.ui \
     layerrenderwidget.ui \
