@@ -49,6 +49,9 @@ public:
     explicit ListTreeWidget(QWidget *parent = nullptr);
     ~ListTreeWidget();
 
+public slots:
+    void slotHeadClicked(int index);
+
 private:
     void initWidgets();
     void initListWidget();

@@ -1,6 +1,7 @@
 ﻿#include "listtreewidget.h"
 #include "ui_listtreewidget.h"
 #include <QComboBox>
+#include <QDebug>
 #include <QLineEdit>
 
 ListTreeWidget::ListTreeWidget(QWidget *parent) : QWidget(parent), ui(new Ui::ListTreeWidget)
@@ -32,6 +33,8 @@ void ListTreeWidget::initListWidget()
 
 void ListTreeWidget::initTreeWidget()
 {
+    ui->treeWidget->header()->setSectionsClickable(true);
+    connect(ui->treeWidget->header(), &QHeaderView::sectionClicked, this, &ListTreeWidget::slotHeadClicked);
     refreshTreeWidget(0);
 }
 
@@ -122,4 +125,9 @@ void ListTreeWidget::refreshTreeWidget(int index)
 void ListTreeWidget::listWidgetClick(QModelIndex index)
 {
     refreshTreeWidget(index.row());
+}
+
+void ListTreeWidget::slotHeadClicked(int index)
+{
+    qDebug() << "head clicked: " << index;
 }
